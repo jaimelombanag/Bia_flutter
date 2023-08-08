@@ -1,10 +1,7 @@
 import 'package:bia_energy_prueba/src/view/detail/home_view.dart';
 import 'package:bia_energy_prueba/src/view/home/home_view.dart';
 import 'package:bia_energy_prueba/src/view/splash/splash_view.dart';
-import 'package:bia_energy_prueba/src/viewmodels/splash/splash_controller.dart';
 import 'package:get/get.dart';
-
-import '../viewmodels/initial_viewmodel.dart';
 import 'app_routes.dart';
 
 class AppPages {
