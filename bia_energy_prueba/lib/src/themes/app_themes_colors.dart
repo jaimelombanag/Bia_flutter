@@ -17,11 +17,11 @@ class ThemeColor {
   ThemeData get themeData {
     ColorScheme colorSchemeMovieApp = const ColorScheme(
       // primary green
-      primary: Color(0xff2E2739),
+      primary: Color(0xff0A1023),
       // primary blue
-      primaryVariant: Color(0xff239DD1),
+      primaryVariant: Color(0xff75FBFD),
       // gradient 1
-      surface: Color(0xff2E2739),
+      surface: Color(0xff221A7C),
       // gradient 2
       background: Color(0xffF1F3F4),
       // secondary grey
