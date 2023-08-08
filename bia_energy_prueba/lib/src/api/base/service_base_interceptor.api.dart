@@ -1,11 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
 class BaseApiInterceptor implements InterceptorContract {
-  BuildContext context;
-  BaseApiInterceptor({required this.context});
-
   String appVersion = '';
 
   @override

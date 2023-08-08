@@ -7,12 +7,12 @@ import '../../services/logger/bia_logger.dart';
 import '../base/service_base.api.dart';
 
 class ApiCharacters extends BaseService {
-  ApiCharacters({required super.context});
+  ApiCharacters();
   String message = '';
   Future<ResponseCharacters?> getCharacters() async {
     Future<ResponseCharacters?> callApiCharacters() async {
       final response = await get(
-          '${Constants.urlBase}${Constants.characters}?apikey=${Constants.apikey}',
+          '${Constants.urlBase}${Constants.characters}?ts=${Constants.timeStamp}&apikey=${Constants.apikey_public}&hash=${Constants.hash}',
           '',
           60);
       if (response.statusCode == HttpStatus.ok) {

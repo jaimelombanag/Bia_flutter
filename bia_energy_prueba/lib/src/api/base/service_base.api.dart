@@ -8,11 +8,10 @@ import 'package:http/http.dart';
 import 'package:http_interceptor/http/intercepted_client.dart';
 
 class BaseService {
-  BuildContext? context;
   late Client client;
-  BaseService({required this.context}) {
+  BaseService() {
     client = InterceptedClient.build(interceptors: [
-      BaseApiInterceptor(context: context!),
+      BaseApiInterceptor(),
       BaseApiLogInterceptor(),
     ]);
   }

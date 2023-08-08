@@ -15,6 +15,7 @@ class BaseApiLogInterceptor implements InterceptorContract {
     if (kDebugMode) {
       print('Code ${data.statusCode}');
       print('Headers ${data.headers}');
+      print('Body ${data.body}');
     }
     return data;
   }

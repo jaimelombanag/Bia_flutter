@@ -8,6 +8,7 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    HomeController.find.getCharacters();
     return Scaffold(
       body: Stack(),
     );
