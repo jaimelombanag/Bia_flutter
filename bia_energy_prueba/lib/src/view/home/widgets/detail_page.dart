@@ -1,5 +1,7 @@
-import 'package:bia_energy_prueba/src/view/home/widgets/character.dart';
+import 'package:bia_energy_prueba/src/models/characters/character.dart';
 import 'package:flutter/material.dart';
+
+import '../../../themes/app_themes_colors.dart';
 
 class DetailPage extends StatefulWidget {
   final Character character;
@@ -38,13 +40,17 @@ class _DetailPageState extends State<DetailPage>
         Hero(
           tag: "background_${widget.character.title}",
           child: Container(
-            color: Color(widget.character.color!),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/fondo_marvel.jpeg"),
+                  fit: BoxFit.cover),
+            ),
           ),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            backgroundColor: Color(widget.character.color!),
+            backgroundColor: ThemeColor.secondaryRed,
             elevation: 0,
             title: Text(widget.character.title!),
             leading: CloseButton(),
@@ -55,9 +61,9 @@ class _DetailPageState extends State<DetailPage>
               children: [
                 Hero(
                   tag: "image_${widget.character.title}",
-                  child: Image.asset(
-                    widget.character.avatar!,
+                  child: Image(
                     height: MediaQuery.of(context).size.height / 2,
+                    image: NetworkImage(widget.character.avatar!),
                   ),
                 ),
                 AnimatedBuilder(

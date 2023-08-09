@@ -5,8 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../services/logger/bia_logger.dart';
-import '../../themes/app_themes_colors.dart';
-import '../../view/home/widgets/character.dart';
+import '../../models/characters/character.dart';
 import '../../view/home/widgets/item_character.dart';
 
 class HomeController extends GetxController {
