@@ -1,7 +1,8 @@
 import 'package:bia_energy_prueba/src/models/characters/character.dart';
 import 'package:flutter/material.dart';
 
-import '../../../themes/app_themes_colors.dart';
+import '../../core/constants.dart';
+import '../../themes/app_themes_colors.dart';
 
 class DetailPage extends StatefulWidget {
   final Character character;
@@ -77,8 +78,10 @@ class _DetailPageState extends State<DetailPage>
                   child: Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      widget.character.description!,
-                      style: TextStyle(
+                      widget.character.description! == ""
+                          ? Constants.characters_description
+                          : widget.character.description!,
+                      style: const TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                         fontWeight: FontWeight.w400,

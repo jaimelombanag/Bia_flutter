@@ -25,9 +25,21 @@ class StoriesItem {
 }
 
 final itemTypeValues = EnumValues({
+  "ad": ItemType.AD,
+  "backcovers": ItemType.BACKCOVERS,
   "cover": ItemType.COVER,
   "": ItemType.EMPTY,
-  "interiorStory": ItemType.INTERIOR_STORY
+  "interiorStory": ItemType.INTERIOR_STORY,
+  "pinup": ItemType.PINUP,
+  "text article": ItemType.TEXT_ARTICLE
 });
 
-enum ItemType { COVER, EMPTY, INTERIOR_STORY }
+enum ItemType {
+  AD,
+  BACKCOVERS,
+  COVER,
+  EMPTY,
+  INTERIOR_STORY,
+  PINUP,
+  TEXT_ARTICLE
+}

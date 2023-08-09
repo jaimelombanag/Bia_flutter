@@ -14,7 +14,7 @@ class ApiCharacters extends BaseService {
   Future<List<Result>> getCharacters() async {
     Future<List<Result>> callApiCharacters() async {
       final response = await get(
-          '${Constants.urlBase}${Constants.characters}?ts=${Constants.timeStamp}&apikey=${Constants.apikey_public}&hash=${Constants.hash}',
+          '${Constants.urlBase}${Constants.characters}?ts=${Constants.timeStamp}&limit=${Constants.limit}&apikey=${Constants.apikey_public}&hash=${Constants.hash}',
           '',
           60);
       if (response.statusCode == HttpStatus.ok) {

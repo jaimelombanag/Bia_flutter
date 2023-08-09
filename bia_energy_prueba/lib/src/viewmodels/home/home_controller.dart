@@ -12,6 +12,7 @@ class HomeController extends GetxController {
   static HomeController get find => Get.find();
   var listCharacters = <Result>[].obs;
   var listCharacter = <Character>[].obs;
+  var itemsFilter = <Character>[].obs;
 
   Future<void> getCharacters() async {
     try {
@@ -34,6 +35,7 @@ class HomeController extends GetxController {
         );
         listCharacter.add(characters);
       }
+      itemsFilter.value = listCharacter;
     } on Exception {
       BiaEnergyLogger.verbose('HomeController', 'Error: recover fail.');
     }

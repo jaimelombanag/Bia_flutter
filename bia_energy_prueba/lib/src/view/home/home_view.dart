@@ -1,5 +1,5 @@
 import 'package:bia_energy_prueba/src/models/characters/character.dart';
-import 'package:bia_energy_prueba/src/view/home/widgets/detail_page.dart';
+import 'package:bia_energy_prueba/src/view/detail/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final HomeController homecontroller = Get.put(HomeController());
+  final TextEditingController _searchController = TextEditingController();
   PageController? _controller;
 
   _goToDetail(Character character) {
@@ -40,6 +41,15 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
+  void filterSearchResults(String query) {
+    setState(() {
+      homecontroller.itemsFilter.value = homecontroller.listCharacter
+          .where(
+              (item) => item.title!.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
   @override
   void initState() {
     homecontroller.getCharacters();
@@ -59,8 +69,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Marvel "),
-        backgroundColor: ThemeColor.primaryBlack,
+        toolbarHeight: 110,
+        title: Column(
+          children: [
+            const SizedBox(height: 10),
+            const Text("Marvel"),
+            TextField(
+              controller: _searchController,
+              style: const TextStyle(color: Colors.white),
+              cursorColor: Colors.white,
+              decoration: const InputDecoration(
+                hintText: 'Search...',
+                hintStyle: TextStyle(color: Colors.white54),
+                border: InputBorder.none,
+              ),
+              onChanged: (value) {
+                filterSearchResults(value);
+              },
+            ),
+          ],
+        ),
+        backgroundColor: ThemeColor.primaryBlue,
         automaticallyImplyLeading: false,
       ),
       body: Container(
@@ -73,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
           () => PageView.builder(
             scrollDirection: Axis.vertical,
             controller: _controller,
-            itemCount: homecontroller.listCharacter.length,
+            //itemCount: homecontroller.listCharacter.length,
+            itemCount: homecontroller.itemsFilter.length,
             itemBuilder: (context, index) {
               double? currentPage = 0;
               try {
@@ -82,7 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
               final num resizeFactor =
                   (1 - (((currentPage! - index).abs() * 0.3).clamp(0.0, 1.0)));
-              final currentCharacter = homecontroller.listCharacter[index];
+              //final currentCharacter = homecontroller.listCharacter[index];
+              final currentCharacter = homecontroller.itemsFilter[index];
               return ListItem(
                 character: currentCharacter,
                 resizeFactor: resizeFactor as double,

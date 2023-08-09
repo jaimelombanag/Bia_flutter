@@ -1,4 +1,5 @@
-import 'package:bia_energy_prueba/src/view/detail/home_view.dart';
+import 'package:bia_energy_prueba/src/models/characters/character.dart';
+import 'package:bia_energy_prueba/src/view/detail/detail_page.dart';
 import 'package:bia_energy_prueba/src/view/home/home_view.dart';
 import 'package:bia_energy_prueba/src/view/splash/splash_view.dart';
 import 'package:get/get.dart';
@@ -18,8 +19,10 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.detail_screen,
-      page: () => DetailScreen(),
-      //∫binding: MovieDetailsBinding(),
+      page: () => DetailPage(
+        character: Character(),
+      ),
+      //∫binding: InitialViewModel(),
     ),
   ];
 }

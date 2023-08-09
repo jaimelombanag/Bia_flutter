@@ -5,6 +5,7 @@ class ThemeColor {
   static const Color secondaryGrey = Color(0xffF1F3F4);
   static const Color secondaryMediumGrey = Color(0xff0000004D);
   static const Color primaryBlack = Color(0xff0A1023);
+  static const Color primaryBlue = Color(0xff1F2284);
   static const Color secondaryDarkBlue = Color(0xff221A7C);
   static const Color primaryDarkGrey = Color(0xff414141);
   static const Color primaryGreen = Color(0xff75FBFD);
