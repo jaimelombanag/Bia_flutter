@@ -43,8 +43,7 @@ class _DetailPageState extends State<DetailPage>
           child: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/fondo_marvel.jpeg"),
-                  fit: BoxFit.cover),
+                  image: AssetImage(Constants.fondoMarvel), fit: BoxFit.cover),
             ),
           ),
         ),
