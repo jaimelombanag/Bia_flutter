@@ -1,3 +1,4 @@
+import 'package:bia_energy_prueba/src/core/constants.dart';
 import 'package:bia_energy_prueba/src/view/home/widgets/list_item_character.dart';
 import 'package:bia_energy_prueba/src/view/home/widgets/search.widget.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Column(
           children: [
             const SizedBox(height: 10),
-            const Text("Marvel"),
+            const Text(Constants.titleHome),
             search(
                 homecontroller: homecontroller,
                 searchController: _searchController)
@@ -56,8 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/fondo_marvel3.jpeg"),
-              fit: BoxFit.cover),
+              image: AssetImage(Constants.fondoMarvel3), fit: BoxFit.cover),
         ),
         child: Obx(
           () => PageView.builder(

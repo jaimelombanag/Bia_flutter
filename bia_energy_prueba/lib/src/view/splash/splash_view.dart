@@ -1,3 +1,4 @@
+import 'package:bia_energy_prueba/src/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../themes/app_themes_colors.dart';
@@ -24,8 +25,7 @@ class SplashScreen extends GetView<SplashController> {
                   duration: const Duration(milliseconds: 1600),
                   opacity: controller.animate.value ? 1 : 0,
                   child: const Image(
-                      image: AssetImage('assets/images/logo1.jpeg'),
-                      fit: BoxFit.cover),
+                      image: AssetImage(Constants.logoBia), fit: BoxFit.cover),
                 ),
               ),
             ),
@@ -49,7 +49,7 @@ class SplashScreen extends GetView<SplashController> {
                   duration: const Duration(milliseconds: 2000),
                   opacity: controller.animate.value ? 1 : 0,
                   child: const Image(
-                      image: AssetImage('assets/images/logo2.jpeg'),
+                      image: AssetImage(Constants.logoBia2),
                       height: 400,
                       width: 400,
                       fit: BoxFit.cover),

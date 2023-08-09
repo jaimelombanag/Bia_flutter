@@ -2,8 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
 class BaseApiInterceptor implements InterceptorContract {
-  String appVersion = '';
-
   @override
   Future<RequestData> interceptRequest({required RequestData data}) async {
     try {

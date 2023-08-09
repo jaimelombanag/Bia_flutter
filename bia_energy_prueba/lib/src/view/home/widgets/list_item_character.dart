@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants.dart';
 import '../../../models/characters/character.dart';
 import '../../../themes/app_themes_colors.dart';
 
@@ -43,7 +44,7 @@ class ListItem extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/images/fondo_marvel.jpeg'),
+                          image: AssetImage(Constants.fondoMarvel),
                           fit: BoxFit.fill,
                         ),
                       ),

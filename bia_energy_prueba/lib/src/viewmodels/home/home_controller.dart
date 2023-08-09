@@ -14,17 +14,17 @@ class HomeController extends GetxController {
   var listCharacter = <Character>[].obs;
   var itemsFilter = <Character>[].obs;
 
-  Future<void> getCharacters() async {
+  Future<bool> getCharacters() async {
     try {
       listCharacters.value = [];
       ApiCharacters recover = ApiCharacters();
       listCharacters.value = await recover.getCharacters();
-      BiaEnergyLogger.verbose("HomeController",
-          "El tamaño de la lista es ${listCharacters.length}");
+      // BiaEnergyLogger.verbose("HomeController",
+      //     "El tamaño de la lista es ${listCharacters.length}");
 
       for (int i = 0; i < listCharacters.length; i++) {
-        BiaEnergyLogger.verbose(
-            'HomeController', '${listCharacters[i].thumbnail.path}.jpg');
+        // BiaEnergyLogger.verbose(
+        //     'HomeController', '${listCharacters[i].thumbnail.path}.jpg');
 
         Character characters = Character(
           title: listCharacters[i].name,
@@ -36,8 +36,10 @@ class HomeController extends GetxController {
         listCharacter.add(characters);
       }
       itemsFilter.value = listCharacter;
+      return true;
     } on Exception {
       BiaEnergyLogger.verbose('HomeController', 'Error: recover fail.');
+      return false;
     }
   }
 
