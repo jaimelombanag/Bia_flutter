@@ -37,9 +37,9 @@
 
 <p align="center">
   <img src="imagenes/splash.png" width="350" title="Splash">
-  <img src="imagenes/home1.png" width="350" title="Lista1">
-  <img src="imagenes/home2.png" width="350" title="Lista2">
-  <img src="imagenes/product.png" width="550" title="Lista3">
-  <img src="imagenes/cart.png" width="350" title="Lista4">
+  <img src="imagenes/home1.png" width="350" title="Home1">
+  <img src="imagenes/home2.png" width="350" title="Home2">
+  <img src="imagenes/home3.png" width="550" title="Home3">
+  <img src="imagenes/detail.png" width="350" title="Detail4">
   
 </p>
