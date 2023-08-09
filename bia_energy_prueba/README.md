@@ -1,16 +1,71 @@
-# bia_energy_prueba
+Flutter app architecture
+Model–View–ViewModel (MVVM) is a very established architectural pattern when it's come to software development. Here I have tried to put MVVM in simple example which will help you to implement in any project.
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Introduction
+This sample demonstrates how one can
 
-A few resources to get you started if this is your first Flutter project:
+Setup base architecture of Flutter app using Stacked plugin
+Use dependency injection for layers separation
+Code generator to generate boilerplate code for DI, routes and JSON parsing
+Make api calls using Retrofit plugin (mostly Android developers might be familier with it).
+Apart from the basic architecture setup, this sample also demonstrates
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Project folder structure
+Navigation using ViewModel (without context)
+Easy data sharing between the screens
+And few more...
+dependencies
+dio : http client
+retrofit : apis
+result_monad : Result Monad (e.g wrapping result for success and failure)
+pretty_dio_logger : logs network calls in a pretty, easy to read format
+stacked : mvvm plugins (viewmodels)
+auto_route : navigation
+get_it: dependency injection
+mockito: unit testing
+Module Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+There are 3 main modules to help separate the code. They are Data, Domain, and Application.
+
+Data contains Local Storage, APIs, Data objects (Request/Response object, DB objects), and the repository implementation.
+
+Domain contains UseCases, Domain Objects/Models, and Repository Interfaces
+
+Application contains UI, View Objects, Widgets, etc. Can be split into separate modules itself if needed. For example, we could have a module called Device handling things like camera, location, etc.
+
+Package structure
+using modular architecture to architect the app per feature to be easier and more readable and isolate the feature from each other
+
+
+Repository
+Bridge between Data layer and Domain layer
+Connects to data sources and returns mapped data
+Data sources include DB and Api
+UseCase
+Responsible for connecting to repository to retrieve necessary data. returns a Stream that will emit each update.
+This is where the business logic takes place.
+Returns data downstream.
+Single use.
+Lives in Domain (No Platform dependencies. Very testable).
+ViewModel
+Organizes data and holds View state.
+Talks to use cases.
+Does not know about the View.
+View
+Updates UI
+Knows about the ViewModel
+Observes changes to ViewModel.
+Router
+I leave this open ended to suit each projects needs. The main point here is that it is important to consolidate navigation logic to one place. This helps with maintenance and unit testing.
+Setup
+One can download the code in zip format or take checkout from the git repository.
+
+Note
+You need to run build_runner command for code generation everytime when you make changes in your original file.
+
+Todo
+to add more unit tests to increase code coverage
+add widget & integration testing
