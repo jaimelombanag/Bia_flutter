@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:bia_energy_prueba/src/api/base/service_base_interceptor.api.dart';
 import 'package:bia_energy_prueba/src/api/base/service_base_log.api.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http_interceptor/http/intercepted_client.dart';
 
