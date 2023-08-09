@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import '../../services/logger/bia_logger.dart';
 import '../../models/characters/character.dart';
-import '../../view/home/widgets/item_character.dart';
+import '../../view/detail/detail_page.dart';
 
 class HomeController extends GetxController {
   static HomeController get find => Get.find();
@@ -41,13 +41,29 @@ class HomeController extends GetxController {
     }
   }
 
-  List<Widget> widgetListCharacter() {
-    List<Widget> items = [];
-    for (int i = 0; i < listCharacters.length; i++) {
-      BiaEnergyLogger.verbose('HomeController',
-          "Extension imagen es: ${listCharacters[i].thumbnail.extension.name}");
-      items.add(itemCharacter(listCharacters[i]));
-    }
-    return items;
+  goToDetail(Character character, BuildContext context) {
+    final page = DetailPage(character: character);
+    Navigator.of(context).push(
+      PageRouteBuilder<Null>(
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return AnimatedBuilder(
+                animation: animation,
+                builder: (BuildContext context, Widget? child) {
+                  return Opacity(
+                    opacity: animation.value,
+                    child: page,
+                  );
+                });
+          },
+          transitionDuration: Duration(milliseconds: 400)),
+    );
+  }
+
+  void filterSearchResults(String query) {
+    itemsFilter.value = listCharacter
+        .where(
+            (item) => item.title!.toLowerCase().contains(query.toLowerCase()))
+        .toList();
   }
 }
