@@ -6,7 +6,7 @@
 
 
 **➢ Arquitectura.**
-* Bussines Logic Component(BLOC)
+* MVVM
 
 
 **➢ Base de Datos.**
